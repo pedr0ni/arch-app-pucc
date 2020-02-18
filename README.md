@@ -1,6 +1,6 @@
 # APP PUC-CAMPINAS
 
-## Visão geral
+## Visão geral.
 O projeto baseia-se em remodelar o aplicativo existente da PUC-Campinas.
 
 ## Objetivos
