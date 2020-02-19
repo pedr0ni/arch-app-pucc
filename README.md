@@ -1,5 +1,7 @@
 # APP PUC-CAMPINAS
 
+[![Build Status](https://travis-ci.org/pedr0ni/arch-app-pucc.svg?branch=master)](https://travis-ci.org/pedr0ni/arch-app-pucc)
+
 ## Visão geral.
 O projeto baseia-se em remodelar o aplicativo existente da PUC-Campinas.
 
