@@ -1,3 +1,16 @@
-language: java
-before_script: cd api
-script: mvn clean install -DskipTests
+jobs:
+  include:
+    - stage: API
+      language: java
+      before_script: cd api
+      script: mvn clean install -DskipTests
+      after_script: cd ..
+    - stage: CMS
+      language: node_js
+      node_js:
+        - "stable"
+      before_script:
+        - cd web
+        - npm install
+      script: npm run build
+      after_script: cd ..
