@@ -6,15 +6,18 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="appaluno" />
         <module name="arch-app-pucc" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="appaluno" target="1.8" />
       <module name="arch-app-pucc" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="appaluno" options="-parameters" />
       <module name="arch-app-pucc" options="-parameters" />
     </option>
   </component>
