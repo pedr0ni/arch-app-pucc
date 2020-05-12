@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/appaluno.iml" filepath="$PROJECT_DIR$/appaluno.iml" />
       <module fileurl="file://$PROJECT_DIR$/arch-app-pucc.iml" filepath="$PROJECT_DIR$/arch-app-pucc.iml" />
     </modules>
   </component>
