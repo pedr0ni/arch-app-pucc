@@ -35,6 +35,9 @@
 </template>
 
 <script>
+
+import api from '../services/api.service'
+
 export default {
 	name: "App",
 	data() {
@@ -48,10 +51,19 @@ export default {
 	},
 	methods: {
 		auth() {
-			this.loading = true;
-				setTimeout(() => {
-				this.loading = false;
-			}, 5000);
+			this.loading = true
+			api.post('user/authenticate', {
+				email: this.login.email,
+				password: this.login.password
+			}).then(response => {
+				console.log(response)
+				api.setLogged(response.data)
+				this.$router.push({name: 'Home'})
+			}).catch(error => {
+				console.log(error)
+			}).then(() => {
+				this.loading = false
+			})
 		}
 	}
 };
