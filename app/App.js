@@ -10,10 +10,7 @@ import { Colors } from './utils/DefaultStyles';
 
 import LoginScreen from './views/LoginScreen';
 import HomeScreen from './views/HomeScreen';
-<<<<<<< HEAD
 import ProfileScreen from './views/ProfileScreen';
-=======
->>>>>>> 02b7c52c11a11b3bdaff80f27c2771a65dc0bbcf
 
 const loginNavigation = createStackNavigator({
 	Login: {
@@ -31,7 +28,6 @@ const defaultNavigation = createBottomTabNavigator({
 			tabBarIcon: ({ tintColor }) => (
 				<Ionicons name={Platform.OS === 'ios' ? "ios-home" : 'md-home'} size={24} color={tintColor} />
 			),
-<<<<<<< HEAD
 			tabBarLabel: 'Grade'
 		}
 	},
@@ -51,17 +47,6 @@ const defaultNavigation = createBottomTabNavigator({
 			fontSize: 12
 		}
 	}
-=======
-		},
-		tabBarOptions: {
-			labelStyle: {
-				fontSize: 20
-			}
-		}
-	}
-}, {
-  	activeTintColor: Colors.defaultBlue,
->>>>>>> 02b7c52c11a11b3bdaff80f27c2771a65dc0bbcf
 })
 
 const mainNavigation = createStackNavigator({

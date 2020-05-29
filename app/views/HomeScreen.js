@@ -1,6 +1,5 @@
 import React from 'react';
 
-<<<<<<< HEAD
 import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import { SafeAreaConsumer, useSafeArea } from 'react-native-safe-area-context'
 
@@ -45,23 +44,12 @@ class HomeScreen extends React.Component {
                         })
                     }
                 </ScrollView>
-=======
-import { View, Text } from 'react-native';
-
-class HomeScreen extends React.Component {
-
-    render() {
-        return (
-            <View>
-                <Text>Home</Text>
->>>>>>> 02b7c52c11a11b3bdaff80f27c2771a65dc0bbcf
             </View>
         );
     }
 
 }
 
-<<<<<<< HEAD
 const styles = StyleSheet.create({
     weekRow: {
         flexDirection: 'row',
@@ -93,6 +81,4 @@ const styles = StyleSheet.create({
     }
 });
 
-=======
->>>>>>> 02b7c52c11a11b3bdaff80f27c2771a65dc0bbcf
 export default HomeScreen;
