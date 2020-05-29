@@ -9,14 +9,14 @@ import java.util.Date;
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int userId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long userId;
 
     private String name;
     private String email;
     private String password;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "courseId")
     private Course course;
 
@@ -25,7 +25,7 @@ public class User {
     private Date created;
     private Date updated;
 
-    public int getUserId() {
+    public long getUserId() {
         return userId;
     }
 

@@ -7,19 +7,19 @@ import javax.persistence.Id;
 import java.util.Date;
 
 @Entity
-public class Course {
+public class Materia {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long courseId;
+    private long materiaId;
 
     private String name;
 
     private Date created;
     private Date updated;
 
-    public long getCourseId() {
-        return courseId;
+    public long getMateriaId() {
+        return materiaId;
     }
 
     public String getName() {
