@@ -5,6 +5,7 @@ export const Colors = {
 };
 
 export const Styles = StyleSheet.create({
+<<<<<<< HEAD
     defaultShadow: {
         shadowColor: "#000",
         shadowOffset: {
@@ -16,4 +17,7 @@ export const Styles = StyleSheet.create({
 
         elevation: 5
     }
+=======
+    
+>>>>>>> 02b7c52c11a11b3bdaff80f27c2771a65dc0bbcf
 });
