@@ -10,8 +10,10 @@ public class Grade {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long gradeId;
 
+    private int semana;
     private String horario;
     private int frequencia;
+    private String sala;
 
     private Date created;
     private Date updated;
@@ -74,5 +76,21 @@ public class Grade {
 
     public void setMateria(Materia materia) {
         this.materia = materia;
+    }
+
+    public int getSemana() {
+        return semana;
+    }
+
+    public void setSemana(int semana) {
+        this.semana = semana;
+    }
+
+    public String getSala() {
+        return sala;
+    }
+
+    public void setSala(String sala) {
+        this.sala = sala;
     }
 }

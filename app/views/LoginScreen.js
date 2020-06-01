@@ -1,17 +1,42 @@
 import React from 'react';
 
-import { StyleSheet, View, Image, Dimensions, Text, TextInput, KeyboardAvoidingView, Platform } from 'react-native';
+import { StyleSheet, View, Image, Dimensions, Text, TextInput, KeyboardAvoidingView, Platform, Alert, ActivityIndicator } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+
+import ApiService from '../service/api.service'
 
 import { Colors } from '../utils/DefaultStyles';
 
 class LoginScreen extends React.Component {
 
-    _login() {
-        const { navigate } = this.props.navigation;
+    constructor(props) {
+        super(props)
+        this.state = {
+            email: '',
+            password: '',
+            isLoading: false
+        }
+    }
 
-        navigate('Home');
+    _login() {
+
+        this.setState({isLoading: true})
+
+        // Efeito Loading
+        setTimeout(() => {
+            ApiService.post('user/authenticate', this.state).then(response => {
+                ApiService.setLogged(response.data)
+                const { navigate } = this.props.navigation;
+                navigate('Home');
+            }).catch(error => {
+                if (error.response.status == 401) {
+                    Alert.alert('App Aluno', error.response.data.message)
+                }
+            }).then(() => {
+                this.setState({isLoading: false})
+            })
+        }, 1500)
     }
 
     render() {
@@ -28,10 +53,15 @@ class LoginScreen extends React.Component {
                         <Text style={styles.subTitle}>APP PUC-Campinass</Text>
                     </View>
                     <View style={styles.formContainer}>
-                        <TextInput placeholder="RA" keyboardType="number-pad" style={styles.materialInput} />
-                        <TextInput placeholder="Senha" secureTextEntry={true} style={styles.materialInput} />
+                        <TextInput value={this.state.email} onChangeText={text => this.setState({email: text.toLowerCase()})} placeholder="Email" style={styles.materialInput} />
+                        <TextInput value={this.state.password} onChangeText={text => this.setState({password: text.toLowerCase()})} placeholder="Senha" secureTextEntry={true} style={styles.materialInput} />
                         <TouchableOpacity style={styles.defaultButton} onPress={() => this._login()}>
-                            <Text style={{color: '#FFF', fontSize: 18, fontWeight: 'bold'}}>Login</Text>
+                            {
+                                this.state.isLoading ? 
+                                    <ActivityIndicator size="small" color="#FFF" />
+                                : <Text style={{color: '#FFF', fontSize: 18, fontWeight: 'bold'}}>Entrar</Text>
+
+                            }
                         </TouchableOpacity>
                     </View>
                 </KeyboardAvoidingView>

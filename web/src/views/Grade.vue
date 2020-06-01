@@ -26,8 +26,19 @@
                     </md-field>
 
                     <md-field>
+                        <label>Sala</label>
+                        <md-input v-model="currentEditing.grade.sala"></md-input>
+                    </md-field>
+
+                    <md-field>
+                        <label>Semana</label>
+                        <md-input type="number" v-model="currentEditing.grade.semana"></md-input>
+                    </md-field>
+                    
+
+                    <md-field>
                         <label>Frequencia</label>
-                        <md-input v-model="currentEditing.grade.frequencia"></md-input>
+                        <md-input type="number" v-model="currentEditing.grade.frequencia"></md-input>
                     </md-field>
                 </div>
             </md-dialog-content>
@@ -42,7 +53,7 @@
         <div>
             <md-table v-model="grades" md-card @md-selected="onSelect">
                 <md-table-toolbar>
-                    <h1 class="md-title">Cursos</h1>
+                    <h1 class="md-title">Grade de Horarios</h1>
                 </md-table-toolbar>
 
                 <md-table-toolbar slot="md-table-alternate-header" slot-scope="{ count }">

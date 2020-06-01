@@ -5,7 +5,9 @@ import br.com.appaluno.appaluno.models.User;
 import br.com.appaluno.appaluno.repositories.CourseRepository;
 import br.com.appaluno.appaluno.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.Date;
 import java.util.Map;
@@ -31,6 +33,9 @@ public class UserController {
         String email = body.get("email");
         String password = body.get("password");
         Optional<User> toLogin = userRepository.findByEmailAndPassword(email, password);
+        if (!toLogin.isPresent()) {
+            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Email ou senha incorreto(s)...");
+        }
         return toLogin;
     }
 

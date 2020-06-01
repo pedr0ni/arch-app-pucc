@@ -27,11 +27,16 @@ public class GradeController {
     private MateriaRepository materiaRepository;
 
     @GetMapping("")
-    public Iterable<Grade> get(@RequestBody Map<String, Integer> body) {
-        if (body != null && body.get("userId") != null && body.get("userId") != 0) {
-            return gradeRepository.findByUserUserId(new Long(body.get("userId")));
-        }
+    public Iterable<Grade> get() {
         return gradeRepository.findAll();
+    }
+
+    @PostMapping("aluno")
+    public Iterable<Grade> postByAluno(@RequestBody Optional<Map<String, Integer>> body) {
+        if (body.isPresent() && body.get().get("userId") != null && body.get().get("userId") != 0) {
+            return gradeRepository.findByUserUserId(new Long(body.get().get("userId")));
+        }
+        return null;
     }
 
     @PostMapping("")
@@ -48,6 +53,8 @@ public class GradeController {
 
         grade.setHorario((String) body.get("horario"));
         grade.setFrequencia(Integer.parseInt((String) body.get("frequencia")));
+        grade.setSemana(Integer.parseInt((String) body.get("semana")));
+        grade.setSala((String) body.get("sala"));
 
         grade.setUpdated(new Date());
         grade.setCreated(new Date());
