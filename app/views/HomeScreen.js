@@ -147,6 +147,10 @@ class HomeScreen extends React.Component {
 }
 
 const chartConfig = {
+    backgroundGradientFrom: "#FFF",
+    backgroundGradientFromOpacity: 0,
+    backgroundGradientTo: "#FFF",
+    backgroundGradientToOpacity: 0.5,
     color: (opacity = 1) => `rgba(22, 51, 108, ${opacity})`,
     strokeWidth: 2, // optional, default 3
     barPercentage: 0.5,
@@ -177,7 +181,8 @@ const styles = StyleSheet.create({
         justifyContent: 'space-around'
     },
     cardDescription: {
-        paddingTop: 10
+        display: 'flex',
+        justifyContent: 'center'
     },
     cardDescriptionTitle: {
         fontWeight: 'bold'

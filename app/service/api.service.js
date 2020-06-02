@@ -2,7 +2,7 @@ import axios from 'axios'
 
 import { AsyncStorage } from 'react-native'
 
-const BASE_URL = 'http://localhost:5000/'
+const BASE_URL = 'http://192.168.0.111:5000/'
 
 const api = {
 

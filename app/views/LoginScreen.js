@@ -27,6 +27,10 @@ class LoginScreen extends React.Component {
         setTimeout(() => {
             ApiService.post('user/authenticate', this.state).then(response => {
                 ApiService.setLogged(response.data)
+                this.setState({
+                    email: '',
+                    password: ''
+                })
                 const { navigate } = this.props.navigation;
                 navigate('Home');
             }).catch(error => {
